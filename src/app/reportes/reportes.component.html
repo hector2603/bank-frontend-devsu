@@ -1,0 +1,32 @@
+<main class="main-content">
+    <h1>Reportes</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <mat-form-field>
+            <mat-label>Cliente</mat-label>
+            <mat-select formControlName="clientId">
+                <mat-option *ngFor="let client of clients" [value]="client.id">{{client.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha Fin</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tipo de Reporte</mat-label>
+            <mat-select formControlName="reportType">
+                <mat-option value="JSON">JSON</mat-option>
+                <mat-option value="PDF">PDF</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button type="submit">Generar Reporte</button>
+    </form>
+    <pre *ngIf="response">{{ response | json }}</pre>
+</main>

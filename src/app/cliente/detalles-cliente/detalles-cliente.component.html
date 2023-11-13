@@ -1,0 +1,21 @@
+<mat-card *ngIf="client">
+    <mat-card-header>
+        <mat-card-title><h2>Detalles del Cliente</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="client-details">
+        <div class="column">
+          <p><strong>ID:</strong> {{client.id}}</p>
+          <p><strong>Nombre:</strong> {{client.name}}</p>
+          <p><strong>Genero:</strong> {{client.gender}}</p>
+          <p><strong>Edad:</strong> {{client.age}}</p>
+        </div>
+        <div class="column">
+          <p><strong>Identificación:</strong> {{client.identification}}</p>
+          <p><strong>Dirección:</strong> {{client.address}}</p>
+          <p><strong>Teléfono:</strong> {{client.phone}}</p>
+          <p><strong>Estado:</strong> {{client.status ? 'Activo' : 'Inactivo'}}</p>
+        </div>
+        <button mat-raised-button color="primary" [routerLink]="['/client/update', client.id]">Actualizar Cliente</button>
+    </mat-card-content>
+    <app-tabla-cuentas [accounts]="cuentas"></app-tabla-cuentas>
+</mat-card>

@@ -1,0 +1,22 @@
+<mat-card *ngIf="transaction">
+    <mat-card-header>
+        <mat-card-title>
+            <h2>Detalles del Movimiento</h2>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="account-details">
+        <div class="column">
+            <p><strong>Id transacción:</strong> {{transaction.id}}</p>
+            <p><strong>Fecha de Creación:</strong> {{transaction.creationDate}}</p>
+            <p><strong>Tipo de Transacción:</strong> {{transaction.transactionType}}</p>
+            <p><strong>Valor:</strong> {{transaction.value}}</p>
+        </div>
+        <div class="column">
+            <p><strong>Saldo:</strong> {{transaction.balance}}</p>
+            <a mat-raised-button color="primary" (click)="showAccount(transaction.accountNumber)">
+                <p>Cliente: {{transaction.accountNumber}}</p>
+            </a>
+        </div>
+        <button mat-raised-button color="accent" [routerLink]="['/movimientos/update', transaction.id]">Actualizar Transacción</button>
+    </mat-card-content>
+</mat-card>

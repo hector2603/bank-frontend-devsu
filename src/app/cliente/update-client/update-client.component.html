@@ -1,0 +1,62 @@
+<main class="main-content">
+  <h1 class="header">Actualizar Cliente</h1>
+  <div style="position: absolute; top: 10px; left: 10px;">
+    <button mat-fab color="primary" (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="updateForm" class="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" required>
+        <mat-error *ngIf="updateForm.controls['name'].invalid">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput placeholder="Gender" formControlName="gender" required>
+        <mat-error *ngIf="updateForm.controls['gender'].invalid">Gender is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Age" formControlName="age" required>
+        <mat-error *ngIf="updateForm.controls['age'].invalid">Age is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Identification</mat-label>
+        <input matInput placeholder="Identification" formControlName="identification" required>
+        <mat-error *ngIf="updateForm.controls['identification'].invalid">Identification is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" formControlName="address" required>
+        <mat-error *ngIf="updateForm.controls['address'].invalid">Address is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone" required>
+        <mat-error *ngIf="updateForm.controls['phone'].invalid">Phone is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Estado de cuenta</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="true">Activo</mat-option>
+          <mat-option value="false">Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" formControlName="password" type="password">
+        <mat-error *ngIf="updateForm.controls['password'].invalid">Password is required</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button [color]="updateForm.valid ? 'accent' : ''" type="submit"
+        [disabled]="updateForm.invalid">Actualizar Cliente</button>
+    </form>
+  </div>
+</main>

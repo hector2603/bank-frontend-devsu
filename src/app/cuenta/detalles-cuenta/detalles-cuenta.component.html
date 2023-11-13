@@ -1,0 +1,23 @@
+<mat-card *ngIf="account">
+    <mat-card-header>
+        <mat-card-title>
+            <h2>Detalles de cuentas</h2>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="account-details">
+        <div class="column">
+            <p><strong>Número de la cuenta:</strong> {{account.accountNumber}}</p>
+            <p><strong>Tipo de Cuenta:</strong> {{account.accountType}}</p>
+            <p><strong>Saldo Inicial:</strong> {{account.initialBalance}}</p>
+            <p><strong>Saldo Actual:</strong> {{account.balance}}</p>
+        </div>
+        <div class="column">
+            <p><strong>Estado de cuenta:</strong> {{account.status}}</p>
+            <a mat-raised-button color="primary" (click)="showClient(account.clientId)">
+                <p>Cliente: {{account.clientId}}</p>
+            </a>
+        </div>
+        <button mat-raised-button color="accent" [routerLink]="['/cuentas/update', account.accountNumber]">Actualizar Cuenta</button>
+    </mat-card-content>
+    <app-tabla-movimientos [transactions] = "trasactions"></app-tabla-movimientos>
+</mat-card>
